@@ -19,7 +19,6 @@ export const venueTypeMemStore = {
     list.venues = await venueMemStore.getVenuesByVenueTypeId(list._id);
     return list;
   },
-
   async getPlaylistById(id) {
     const list = playlists.find((playlist) => playlist._id === id);
     list.tracks = await trackMemStore.getTracksByPlaylistId(list._id);

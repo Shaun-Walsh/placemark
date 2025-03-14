@@ -14,10 +14,10 @@ export const venueTypeController = {
 
   addVenue: {
     handler: async function (request, h) {
-      const venue = await db.venueTypeStore.getVenueById(request.params.id);
+      const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
       const newVenue = {
         title: request.payload.title,
-        type: request.payload.artist,
+        type: request.payload.type,
         contact: Number(request.payload.contact),
       };
       await db.venueStore.addVenue(venueType._id, newVenue);

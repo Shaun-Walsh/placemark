@@ -15,7 +15,7 @@ export const venueMemStore = {
   },
 // possible error here i
   async getVenuesByVenueTypeId(id) {
-    return venues.filter((venue) => venue.venueTypeid === id);
+    return venues.filter((venue) => venue.venueTypeId === id);
   },
 
   async getVenueById(id) {
