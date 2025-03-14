@@ -1,4 +1,5 @@
 import { v4 } from "uuid";
+import { venueMemStore } from "./venue-mem-store.js";
 
 let venueTypes = [];
 
@@ -14,7 +15,15 @@ export const venueTypeMemStore = {
   },
 
   async getVenueTypeById(id) {
-    return venueTypes.find((venueType) => venueType._id === id);
+    const list = venueTypes.find((venueType) => venueType._id === id);
+    list.venues = await venueMemStore.getVenuesByVenueTypeId(list._id);
+    return list;
+  },
+
+  async getPlaylistById(id) {
+    const list = playlists.find((playlist) => playlist._id === id);
+    list.tracks = await trackMemStore.getTracksByPlaylistId(list._id);
+    return list;
   },
 
   async deleteVenueTypeById(id) {
