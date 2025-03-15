@@ -33,4 +33,9 @@ export const venueTypeMemStore = {
   async deleteAllVenueTpes() {
     venueTypes = [];
   },
+
+  async getUserVenueTypes(userid) {
+    return venueTypes.filter((venueType) => venueType.userid === userid);
+  },
+
 };
