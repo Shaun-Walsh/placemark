@@ -19,6 +19,8 @@ export const venueTypeController = {
         title: request.payload.title,
         type: request.payload.type,
         contact: Number(request.payload.contact),
+        location: request.payload.location,
+        description: request.payload.description,
       };
       await db.venueStore.addVenue(venueType._id, newVenue);
       return h.redirect(`/venueType/${venueType._id}`);
