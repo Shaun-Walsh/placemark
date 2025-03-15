@@ -13,10 +13,13 @@ export const webRoutes = [
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addVenueType", config: dashboardController.addVenueType },
+  { method: "Get", path: "/dashboard/deleteVenueType/{id}", config: dashboardController.deleteVenueType },
 
   { method: "GET", path: "/about", config: aboutController.index },
 
   { method: "GET", path: "/venueType/{id}", config: venueTypeController.index },
   { method: "POST", path: "/venueType/{id}/addVenue", config: venueTypeController.addVenue },
+  { method: "GET", path: "/venueType/{id}/deleteVenue/{venueid}", config: venueTypeController.deleteVenue },
+
 
 ];

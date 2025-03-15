@@ -13,7 +13,7 @@ export const venueMemStore = {
     venues.push(venue);
     return venue;
   },
-// possible error here i
+
   async getVenuesByVenueTypeId(id) {
     return venues.filter((venue) => venue.venueTypeId === id);
   },
@@ -28,7 +28,7 @@ export const venueMemStore = {
 
   async deleteVenue(id) {
     const index = venues.findIndex((venue) => venue._id === id);
-    tracks.splice(index, 1);
+    venues.splice(index, 1);
   },
 
   async deleteAllVenues() {
