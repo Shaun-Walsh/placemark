@@ -1,5 +1,6 @@
 import { assert } from "chai";
 import { db } from "../src/models/db.js";
+import { assertSubset } from "./test-utils.js";
 import { maggie, testUsers } from "./fixtures.js";
 
 suite("User Model tests", () => {
@@ -14,7 +15,7 @@ suite("User Model tests", () => {
 
   test("create a user", async () => {
     const newUser = await db.userStore.addUser(maggie);
-    assert.equal(newUser, maggie);
+    assertSubset(maggie, newUser);
   });
 
   test("delete all userApi", async () => {
