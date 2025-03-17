@@ -25,4 +25,20 @@ export const maggie = {
       password: "secret",
     },
   ];
+
+  export const pub = {
+    title: "Public House"
+  };
+  
+  export const testVenueTypes = [
+    {
+      title: "Catholic Church"
+    },
+    {
+      title: "Public House"
+    },
+    {
+      title: "Theatre"
+    }
+  ];
   

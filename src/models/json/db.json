@@ -5,28 +5,35 @@
       "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "secret",
-      "_id": "c787f768-6e79-4013-87e9-8536918f575c"
+      "_id": "880502ec-ca14-43c9-933d-4cd79f38613c"
     },
     {
       "firstName": "Marge",
       "lastName": "Simpson",
       "email": "marge@simpson.com",
       "password": "secret",
-      "_id": "63e81685-6412-4415-9aab-f07a25965d36"
+      "_id": "5934956b-dae7-4222-8f72-0740aef1d26c"
     },
     {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret",
-      "_id": "78a0e9bc-c0fb-427b-9dd6-d7ff1542ee68"
+      "_id": "01321c90-ee89-4b76-8859-19e0712dae0f"
     }
   ],
   "venueTypes": [
     {
-      "userid": "8860463a-2d10-4e30-9cdf-b53e34cd9a10",
-      "title": "a",
-      "_id": "50e699f7-8fa8-4d5f-bf03-d6874fa90cd0"
+      "title": "Catholic Church",
+      "_id": "8ebef08f-706e-4471-bf17-6e55bb46cecf"
+    },
+    {
+      "title": "Public House",
+      "_id": "47f8e7c1-c4a0-4045-a687-8ed849322338"
+    },
+    {
+      "title": "Theatre",
+      "_id": "ab3f39e9-9e96-4ee3-ab7e-336c00f06390"
     }
   ],
   "venues": [
