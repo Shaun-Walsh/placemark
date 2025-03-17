@@ -8,6 +8,8 @@ import { venueJsonStore } from "./json/venue-json-store.js";
 
 import { connectMongo } from "./mongo/connect.js";
 import { userMongoStore } from "./mongo/user-mongo-store.js";
+import { venueTypeMongoStore } from "./mongo/venueType-mongo-store.js";
+import { venueMongoStore } from "./mongo/venue-mongo-store.js";
 
 export const db = {
   userStore: null,
@@ -23,6 +25,8 @@ export const db = {
         break;
       case "mongo":
           this.userStore = userMongoStore;
+          this.venueTypeStore = venueTypeMongoStore;
+          this.venueStore = venueMongoStore;
           connectMongo();
           break;
       default:

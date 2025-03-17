@@ -1,11 +1,15 @@
 import { assert } from "chai";
+import { EventEmitter } from "events";
 import { db } from "../src/models/db.js";
 import { testVenueTypes, pub } from "./fixtures.js";
+import { assertSubset } from "./test-utils.js";
+
+EventEmitter.setMaxListeners(25);
 
 suite("Venue Type Model tests", () => {
 
   setup(async () => {
-    db.init("json");
+    db.init("mongo");
     await db.venueTypeStore.deleteAllVenueTypes();
     for (let i = 0; i < testVenueTypes.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -15,7 +19,7 @@ suite("Venue Type Model tests", () => {
 
   test("create a venue type", async () => {
     const venueType = await db.venueTypeStore.addVenueType(pub);
-    assert.equal(pub, venueType);
+    assertSubset(pub, venueType);
     assert.isDefined(venueType._id);
   });
 
@@ -30,7 +34,7 @@ suite("Venue Type Model tests", () => {
   test("get a venue type - success", async () => {
     const venueType = await db.venueTypeStore.addVenueType(pub);
     const returnedVenueType = await db.venueTypeStore.getVenueTypeById(venueType._id);
-    assert.equal(pub, venueType);
+    assertSubset(pub, venueType);
   });
 
   test("delete One venue type - success", async () => {
