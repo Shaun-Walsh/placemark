@@ -24,4 +24,13 @@ export const dashboardController = {
       return h.redirect("/dashboard");
     },
   },
+  
+  deleteVenueType: {
+    handler: async function (request, h) {
+      const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
+      await db.venueTypeStore.deleteVenueTypeById(venueType._id);
+      return h.redirect("/dashboard");
+    },
+  },
+
 };
