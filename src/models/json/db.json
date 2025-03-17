@@ -1,20 +1,36 @@
 {
   "users": [
     {
-      "firstName": "a",
-      "lastName": "a",
-      "email": "a@a.com",
-      "password": "a",
-      "_id": "8860463a-2d10-4e30-9cdf-b53e34cd9a10"
+      "firstName": "Marge",
+      "lastName": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "9f8f0849-03c7-444f-8b11-4d3f089cbe1b"
     },
     {
-      "firstName": "b",
-      "lastName": "b",
-      "email": "b@a.com",
-      "password": "b",
-      "_id": "58031f69-8bea-4db3-ad8e-0643783a5015"
+      "firstName": "Bart",
+      "lastName": "Simpson",
+      "email": "bart@simpson.com",
+      "password": "secret",
+      "_id": "98f84e3a-31d2-408c-a757-fb0f22fe5271"
     }
   ],
-  "venueTypes": [],
-  "venues": []
+  "venueTypes": [
+    {
+      "userid": "8860463a-2d10-4e30-9cdf-b53e34cd9a10",
+      "title": "a",
+      "_id": "50e699f7-8fa8-4d5f-bf03-d6874fa90cd0"
+    }
+  ],
+  "venues": [
+    {
+      "title": "a",
+      "type": "a",
+      "contact": 123,
+      "location": "a",
+      "description": "a",
+      "_id": "3d13e160-9320-4f25-819a-5006d4e348f6",
+      "venueTypeId": "70ae922c-890a-41ad-af80-d6d3cf3d3af6"
+    }
+  ]
 }
