@@ -1,18 +1,25 @@
 {
   "users": [
     {
+      "firstName": "Homer",
+      "lastName": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "_id": "c787f768-6e79-4013-87e9-8536918f575c"
+    },
+    {
       "firstName": "Marge",
       "lastName": "Simpson",
       "email": "marge@simpson.com",
       "password": "secret",
-      "_id": "9f8f0849-03c7-444f-8b11-4d3f089cbe1b"
+      "_id": "63e81685-6412-4415-9aab-f07a25965d36"
     },
     {
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret",
-      "_id": "98f84e3a-31d2-408c-a757-fb0f22fe5271"
+      "_id": "78a0e9bc-c0fb-427b-9dd6-d7ff1542ee68"
     }
   ],
   "venueTypes": [
