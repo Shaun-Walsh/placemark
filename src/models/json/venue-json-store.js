@@ -18,18 +18,35 @@ export const venueJsonStore = {
 
   async getVenuesByVenueTypeId(id) {
     await db.read();
-    return db.data.venues.filter((venue) => venue.venueTypeId === id);
+    let foundVenues = db.data.venues.filter((venue) => venue.venueTypeId === id);
+    if (!foundVenues) {
+      foundVenues = null;
+    }
+    return foundVenues;
   },
 
   async getVenueById(id) {
     await db.read();
-    return db.data.venues.find((venue) => venue._id === id);
+    let foundVenues = db.data.venues.find((venue) => venue._id === id);
+    if (!foundVenues) {
+      foundVenues = null;
+    }  
+    return foundVenues;
+  },
+
+  async getVenueTypeVenues(venueTypeId) {
+    await db.read();
+    let foundVenues = venues.filter((venue) => venue.venueTypeId === venueTypeId);
+    if (!foundVenues) {
+      foundVenues = null;
+    }
+    return foundVenues;
   },
 
   async deleteVenue(id) {
     await db.read();
     const index = db.data.venues.findIndex((venue) => venue._id === id);
-    db.data.venues.splice(index, 1);
+    if (index !== -1) db.data.venues.splice(index, 1);
     await db.write();
   },
 
