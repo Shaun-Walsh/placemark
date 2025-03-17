@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a@a.com",
+      "password": "a",
+      "_id": "8860463a-2d10-4e30-9cdf-b53e34cd9a10"
+    },
+    {
+      "firstName": "b",
+      "lastName": "b",
+      "email": "b@a.com",
+      "password": "b",
+      "_id": "58031f69-8bea-4db3-ad8e-0643783a5015"
+    }
+  ],
+  "venueTypes": [],
+  "venues": []
+}

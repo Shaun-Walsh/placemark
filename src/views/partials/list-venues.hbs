@@ -1,0 +1,37 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Contact</th>
+      <th>Location</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each venueType.venues}}
+      <tr>
+        <td>
+          {{title}}
+        </td>
+        <td>
+          {{type}}
+        </td>
+        <td>
+          {{contact}}
+        </td>
+        <td>
+          {{location}}
+        </td>
+        <td>
+          {{description}}
+        </td>
+        <td>
+          <a href="/venueType/{{../venueType._id}}/deleteVenue/{{_id}}" class="ui icon button">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
