@@ -1,3 +1,4 @@
+import Mongoose from "mongoose";
 import { Venue } from "./venue.js";
 
 export const venueMongoStore = {
@@ -13,13 +14,8 @@ export const venueMongoStore = {
     return this.getVenueById(venueObj._id);
   },
 
-  async getVenuesById(id) {
-    const tracks = await Track.find({ playlistid: id }).lean();
-    return tracks;
-  },
-
   async getVenuesByVenueTypeId(id) {
-    const venues = await Venue.find({ venueTypeid: id }).lean();
+    const venues = await Venue.find({ venueTypeId: id }).lean();
     return venues;
   },
 

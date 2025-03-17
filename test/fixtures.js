@@ -25,11 +25,25 @@ export const maggie = {
       password: "secret",
     },
   ];
-
+// mozart
   export const pub = {
     title: "Public House"
   };
-  
+ // concerto 
+  export const sadies = [
+    {
+      title: "Sadie's",
+      type: "Bar",
+      contact: 51321654,
+      location: "123, 456",
+      description: "A great place to hang out"
+    },
+  ];
+// beethoven
+  export const theatre = {
+    title: "Theatre"
+  };
+
   export const testVenueTypes = [
     {
       title: "Catholic Church"
@@ -42,3 +56,26 @@ export const maggie = {
     }
   ];
   
+  export const testVenues = [
+    {
+      title: "Murphs's",
+      type: "Bar",
+      contact: 51389654,
+      location: "123, 852",
+      description: "A great place to hang out"
+    },
+    {
+      title: "The Abbey",
+      type: "Classical",
+      contact: 51321687,
+      location: "123, 786",
+      description: "Classical music venue"
+    },
+    {
+      title: "Theatre Royal",
+      type: "Theatre",
+      contact: 51321687,
+      location: "123, 786",
+      description: "Theatre venue"
+    },
+  ];
