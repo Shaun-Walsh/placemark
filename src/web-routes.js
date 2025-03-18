@@ -21,5 +21,6 @@ export const webRoutes = [
   { method: "POST", path: "/venueType/{id}/addVenue", config: venueTypeController.addVenue },
   { method: "GET", path: "/venueType/{id}/deleteVenue/{venueid}", config: venueTypeController.deleteVenue },
 
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
 
 ];
