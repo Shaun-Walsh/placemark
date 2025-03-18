@@ -24,4 +24,29 @@ export const placemarkService = {
     const res = await axios.delete(`${this.placemarkUrl}/api/users`);
     return	res.data
 },
+
+async createVenueType(venueType) {
+    const res = await axios.post(`${this.placemarkUrl}/api/venueTypes`, venueType);
+    return res.data;
+  },
+
+  async deleteAllVenueTypes() {
+    const response = await axios.delete(`${this.placemarkUrl}/api/venueTypes`);
+    return response.data;
+  },
+
+  async deleteVenueType(id) {
+    const response = await axios.delete(`${this.placemarkUrl}/api/venueTypes/${id}`);
+    return response;
+  },
+
+  async getAllVenueTypes() {
+    const res = await axios.get(`${this.placemarkUrl}/api/venueTypes`);
+    return res.data;
+  },
+
+  async getVenueType(id) {
+    const res = await axios.get(`${this.placemarkUrl}/api/venueTypes/${id}`);
+    return res.data;
+  },
 };

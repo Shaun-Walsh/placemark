@@ -40,7 +40,7 @@ suite("User API tests", () => {
       assert(error.response.data.message === "No User with this id");
     }
   });
-
+// chaned this to 404
   test("get a user - bad id", async () => {
     try {
       const returnedUser = await placemarkService.getUser("1234");
