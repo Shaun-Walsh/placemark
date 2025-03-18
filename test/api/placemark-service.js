@@ -49,4 +49,29 @@ async createVenueType(venueType) {
     const res = await axios.get(`${this.placemarkUrl}/api/venueTypes/${id}`);
     return res.data;
   },
+
+  async getAllVenues() {
+    const res = await axios.get(`${this.placemarkUrl}/api/venues`);
+    return res.data;
+  },
+
+  async createVenue(id, venue) {
+    const res = await axios.post(`${this.placemarkUrl}/api/venueTypes/${id}/venues`, venue);
+    return res.data;
+  },
+
+  async deleteAllVenues() {
+    const res = await axios.delete(`${this.placemarkUrl}/api/venues`);
+    return res.data;
+  },
+
+  async getVenue(id) {
+    const res = await axios.get(`${this.placemarkUrl}/api/venues/${id}`);
+    return res.data;
+  },
+
+  async deleteVenue(id) {
+    const res = await axios.delete(`${this.placemarkUrl}/api/venues/${id}`);
+    return res.data;
+  },
 };
