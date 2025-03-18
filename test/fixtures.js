@@ -79,3 +79,5 @@ export const maggie = {
       description: "Theatre venue"
     },
   ];
+
+  export const serviceUrl = "http://localhost:3000";
