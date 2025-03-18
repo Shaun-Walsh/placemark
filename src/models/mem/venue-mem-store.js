@@ -19,16 +19,24 @@ export const venueMemStore = {
   },
 
   async getVenueById(id) {
-    return venues.find((venue) => venue._id === id);
+    let foundVenue = venues.find((venue) => venue._id === id);
+    if (!foundVenue) {
+      foundVenue = null;
+    }
+    return foundVenue;
   },
 
   async getVenueTypeVenues(venueTypeId) {
-    return venues.filter((venue) => venue.Venuetypeid === venueTypeId);
+    let foundVenues = venues.filter((venue) => venue.venueTypeId === venueTypeId);
+    if (!foundVenues) {
+      foundVenues = null;
+    }
+    return foundVenues;
   },
 
   async deleteVenue(id) {
     const index = venues.findIndex((venue) => venue._id === id);
-    venues.splice(index, 1);
+    if (index !== -1) venues.splice(index, 1);
   },
 
   async deleteAllVenues() {
