@@ -30,15 +30,13 @@ export const maggie = {
     title: "Public House"
   };
  // concerto 
-  export const sadies = [
-    {
-      title: "Sadie's",
-      type: "Bar",
-      contact: 51321654,
-      location: "123, 456",
-      description: "A great place to hang out"
-    },
-  ];
+ export const sadies = {
+  title: "Sadies Bar",  // required string
+  type: "Public House", // required string
+  contact: 1234567890,  // must be number, not string
+  location: "123, 741", // required string
+  description: "Famous local pub" // required string
+};
 // beethoven
   export const theatre = {
     title: "Theatre"

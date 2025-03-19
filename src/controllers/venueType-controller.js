@@ -1,5 +1,5 @@
 import { db } from "../models/db.js";
-import { venueSpec } from "../models/joi-schemas.js";
+import { VenueSpec } from "../models/joi-schemas.js";
 
 export const venueTypeController = {
   index: {
@@ -15,7 +15,7 @@ export const venueTypeController = {
 
   addVenue: {
     validate: {
-      payload: venueSpec,
+      payload: VenueSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("venueType-view", { title: "Add venue error", errors: error.details }).takeover().code(400);
