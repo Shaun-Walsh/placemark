@@ -31,11 +31,11 @@ export const maggie = {
   };
  // concerto 
  export const sadies = {
-  title: "Sadies Bar",  // required string
-  type: "Public House", // required string
-  contact: 1234567890,  // must be number, not string
-  location: "123, 741", // required string
-  description: "Famous local pub" // required string
+  title: "Sadies Bar",  
+  type: "Public House", 
+  contact: 1234567890, 
+  location: "123, 741", 
+  description: "Famous local pub" 
 };
 // beethoven
   export const theatre = {
