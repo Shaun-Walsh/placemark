@@ -43,7 +43,7 @@ export const seedData = {
       contact: 1234567890,
       location: "123, 741",
       description: "Famous local pub",
-      venueTypeid: "->venueType.pub"
+      venuetypeid: "->venueTypes.pub"
     },
     theatre: {
       title: "Theatre",
@@ -51,7 +51,7 @@ export const seedData = {
       contact: 1234567890,
       location: "123, 741",
       description: "Famous local theatre",
-      venueTypeid: "->venueType.theatre"
+      venuetypeid: "->venueTypes.theatre"
     },
     church: {
       title: "St. Mary's",
@@ -59,7 +59,7 @@ export const seedData = {
       contact: 1234567890,
       location: "123, 741",
       description: "Famous local church",
-      venueTypeid: "->venueType.church"
+      venuetypeid: "->venueTypes.church"
     },
   }
 };
