@@ -2,7 +2,7 @@ import { EventEmitter } from "events";
 import { assert } from "chai";
 import { placemarkService } from "./placemark-service.js";
 import { assertSubset } from "../test-utils.js";
-import { maggie, pub, testVenueTypes } from "../fixtures.js";
+import { maggie, maggieCredentials, pub, testVenueTypes } from "../fixtures.js";
 
 EventEmitter.setMaxListeners(25);
 
@@ -13,11 +13,11 @@ suite("Venue Type API tests", () => {
       setup(async () => {
         placemarkService.clearAuth();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         await placemarkService.deleteAllVenueTypes();
         await placemarkService.deleteAllUsers();
         user = await placemarkService.createUser(maggie);
-        await placemarkService.authenticate(maggie);
+        await placemarkService.authenticate(maggieCredentials);
         pub.userid = user._id;
       });
 
