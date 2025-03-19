@@ -10,10 +10,14 @@ suite("Venue Type API tests", () => {
 
     let user = null;
 
-    setup(async () => {
+      setup(async () => {
+        placemarkService.clearAuth();
+        user = await placemarkService.createUser(maggie);
+        await placemarkService.authenticate(maggie);
         await placemarkService.deleteAllVenueTypes();
         await placemarkService.deleteAllUsers();
         user = await placemarkService.createUser(maggie);
+        await placemarkService.authenticate(maggie);
         pub.userid = user._id;
       });
 

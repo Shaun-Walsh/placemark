@@ -5,9 +5,10 @@ import { validationError } from "./logger.js";
 
 export const venueApi = {
   find: {
-    auth: {
+        auth: {
       strategy: "jwt",
     },
+
     handler: async function (request, h) {
       try {
         const venues = await db.venueStore.getAllVenues();
@@ -23,9 +24,10 @@ export const venueApi = {
   },
 
   findOne: {
-    auth: {
+        auth: {
       strategy: "jwt",
     },
+
     async handler(request) {
       try {
         const venue = await db.venueStore.getVenueById(request.params.id);
@@ -45,9 +47,10 @@ export const venueApi = {
   },
 
   create: {
-    auth: {
+        auth: {
       strategy: "jwt",
     },
+
     handler: async function (request, h) {
       try {
         const venue = await db.venueStore.addVenue(request.params.id, request.payload);
@@ -67,9 +70,10 @@ export const venueApi = {
   },
 
   deleteAll: {
-    auth: {
+        auth: {
       strategy: "jwt",
     },
+
     handler: async function (request, h) {
       try {
         await db.venueStore.deleteAllVenues();
@@ -83,9 +87,10 @@ export const venueApi = {
   },
 
   deleteOne: {
-    auth: {
+        auth: {
       strategy: "jwt",
     },
+
     handler: async function (request, h) {
       try {
         const venue = await db.venueStore.getVenueById(request.params.id);
