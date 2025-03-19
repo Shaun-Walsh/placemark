@@ -1,20 +1,25 @@
 import Boom from "@hapi/boom";
-import { venueTypeSpec } from "../models/joi-schemas.js"
+import { VenueTypeSpec, IdSpec, VenueTypeArraySpec, VenueTypeSpecPlus } from "../models/joi-schemas.js";
 import { db } from "../models/db.js";
+import { validationError } from "./logger.js";
 
 export const venueTypeApi = {
   find: {
     auth: false,
     handler: async function (request, h) {
-        try {
-            const venueTypes = await db.venueTypeStore.getAllVenueTypes();
-            return venueTypes;
-          } catch (err) {
-            return Boom.serverUnavailable("Database Error");
-          }
-        },
-      },
-  
+      try {
+        const venueTypes = await db.venueTypeStore.getAllVenueTypes();
+        return venueTypes;
+      } catch (err) {
+        return Boom.serverUnavailable("Database Error");
+      }
+    },
+    tags: ["api"],
+    response: { schema: VenueTypeArraySpec, failAction: validationError },
+    description: "Get all venue types",
+    notes: "Returns all venue types",
+  },
+
   findOne: {
     auth: false,
     async handler(request) {
@@ -28,8 +33,12 @@ export const venueTypeApi = {
         return Boom.serverUnavailable("No Venue Type with this id");
       }
     },
+    tags: ["api"],
+    description: "Find a Venue Type",
+    notes: "Returns a Venue Type",
+    validate: { params: { id: IdSpec }, failAction: validationError },
+    response: { schema: VenueTypeSpecPlus, failAction: validationError },
   },
-
 
   create: {
     auth: false,
@@ -45,6 +54,11 @@ export const venueTypeApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Create a Venue Type",
+    notes: "Returns the newly created Venue Type",
+    validate: { payload: VenueTypeSpec, failAction: validationError },
+    response: { schema: VenueTypeSpecPlus, failAction: validationError },
   },
 
   deleteOne: {
@@ -61,6 +75,9 @@ export const venueTypeApi = {
         return Boom.serverUnavailable("No Venue Type with this id");
       }
     },
+    tags: ["api"],
+    description: "Delete a Venue Type",
+    validate: { params: { id: IdSpec }, failAction: validationError },
   },
 
   deleteAll: {
@@ -73,5 +90,7 @@ export const venueTypeApi = {
         return Boom.serverUnavailable("Database Error");
       }
     },
+    tags: ["api"],
+    description: "Delete all Venue Type",
   },
 };

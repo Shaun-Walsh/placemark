@@ -21,10 +21,6 @@ export const UserSpecPlus = UserSpec.keys({
 
 export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 
-export const venueTypeSpec = {
-  title: Joi.string().required(),
-};
-
 export const VenueSpec = Joi.object()
   .keys({
     title: Joi.string().required().example("Sadies"),
@@ -42,3 +38,19 @@ export const VenueSpecPlus = VenueSpec.keys({
 }).label("VenuePlus");
 
 export const VenueArraySpec = Joi.array().items(VenueSpecPlus).label("VenueArray");
+
+export const VenueTypeSpec = Joi.object()
+  .keys({
+    title: Joi.string().required().example("Public House"),
+    userid: IdSpec,
+    venues: VenueArraySpec,
+  })
+  .label("Venue Type");
+
+export const VenueTypeSpecPlus = VenueTypeSpec.keys({
+  _id: IdSpec,
+  __v: Joi.number(),
+}).label("VenueTypePlus");
+
+export const VenueTypeArraySpec = Joi.array().items(VenueTypeSpecPlus).label("VenueTypeArray");
+
