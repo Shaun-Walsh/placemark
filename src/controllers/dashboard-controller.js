@@ -1,5 +1,5 @@
 import { db } from "../models/db.js";
-import { venueTypeSpec } from "../models/joi-schemas.js";
+import { VenueTypeSpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
   index: {
@@ -16,7 +16,7 @@ export const dashboardController = {
 
   addVenueType: {
     validate: {
-      payload: venueTypeSpec,
+      payload: VenueTypeSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("dashboard-view", { title: "Add Venue Type error", errors: error.details }).takeover().code(400);

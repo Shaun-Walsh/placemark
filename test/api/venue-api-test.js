@@ -8,13 +8,18 @@ suite("Venue API tests", () => {
   let theatreList = null;
 
   setup(async () => {
-    await placemarkService.deleteAllVenueTypes();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllVenues();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
+    await placemarkService.deleteAllVenueTypes();
+    await placemarkService.deleteAllVenues();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggie);
     pub.userid = user._id;
     theatreList = await placemarkService.createVenueType(pub);
   });
+
 
   teardown(async () => {});
 
