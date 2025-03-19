@@ -15,7 +15,6 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { apiRoutes } from "./api-routes.js";
 import { validate } from "./api/jwt-utils.js";
 
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -27,10 +26,19 @@ if (result.error) {
 
 const swaggerOptions = {
   info: {
-    title: "Placemark API",
-    version: "0.1",
+    title: "Playtime API",
+    version: "0.1"
   },
+  securityDefinitions: {
+    jwt: {
+      type: "apiKey",
+      name: "Authorization",
+      in: "header"
+    }
+  },
+  security: [{ jwt: [] }]
 };
+
 
 async function init() {
   const server = Hapi.server({
@@ -63,10 +71,10 @@ async function init() {
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
     validate: validate,
-    verifyOptions: { algorithms: ["HS256"] }
+    verifyOptions: { algorithms: ["HS256"] },
   });
 
-  server.auth.default("session")
+  server.auth.default("session");
 
   server.views({
     engines: {
