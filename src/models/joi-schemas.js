@@ -28,7 +28,7 @@ export const VenueSpec = Joi.object()
     contact: Joi.number().required().example(1234567890),
     location: Joi.string().required().example("127, 254"),
     description: Joi.string().required().example("A great place to get good music and drinks"),
-    playlistid: IdSpec,
+    venuetypeid: IdSpec,
   })
   .label("Venue");
 

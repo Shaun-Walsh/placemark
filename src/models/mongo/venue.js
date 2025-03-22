@@ -8,7 +8,7 @@ const venueSchema = new Schema({
   contact: Number,
   location: String,
   description: String,
-  venueTypeid: {
+  venuetypeid: {
     type: Schema.Types.ObjectId,
     ref: "VenueType",
   },

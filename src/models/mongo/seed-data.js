@@ -46,7 +46,7 @@ export const seedData = {
       venuetypeid: "->venueTypes.pub"
     },
     theatre: {
-      title: "Theatre",
+      title: "Theatre Royal",
       type: "Theatre",
       contact: 1234567890,
       location: "123, 741",
