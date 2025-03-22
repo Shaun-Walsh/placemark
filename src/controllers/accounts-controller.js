@@ -61,6 +61,7 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
+  
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {
@@ -69,5 +70,27 @@ export const accountsController = {
     return { isValid: true, credentials: user };
   },
 
+   // new method to show profile
+   profile: {
+    handler: async function (request, h) {
+      const userId = request.auth.credentials._id;
+      const user = await db.userStore.getUserById(userId);
+      const viewData = {
+        title: "User Profile",
+        user: user,
+      };
+      return h.view("profile-view", viewData);
+    },
+  },
+
+  // method to update user
+  update: {
+    handler: async function (request, h) {
+      const userId = request.auth.credentials._id;
+      const updatedUser = request.payload;
+      await db.userStore.updateUser(userId, updatedUser);
+      return h.redirect("/dashboard");
+    },
+  },
 };
 

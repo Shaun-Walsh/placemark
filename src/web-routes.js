@@ -10,12 +10,17 @@ export const webRoutes = [
   { method: "GET", path: "/logout", config: accountsController.logout },
   { method: "POST", path: "/register", config: accountsController.signup },
   { method: "POST", path: "/authenticate", config: accountsController.login },
+  // route to show profile
+  { method: "GET", path: "/profile", config: accountsController.profile },
+  // route to update profile
+  { method: "POST", path: "/profile", config: accountsController.update },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
   { method: "POST", path: "/dashboard/addVenueType", config: dashboardController.addVenueType },
   { method: "Get", path: "/dashboard/deleteVenueType/{id}", config: dashboardController.deleteVenueType },
 
   { method: "GET", path: "/about", config: aboutController.index },
+
 
   { method: "GET", path: "/venueType/{id}", config: venueTypeController.index },
   { method: "POST", path: "/venueType/{id}/addVenue", config: venueTypeController.addVenue },

@@ -40,7 +40,7 @@ export const venueMongoStore = {
   },
 
   async updateVenue(venue, updatedVenue) {
-    const venueDoc = await Venue.findOne({ _id: track._id });
+    const venueDoc = await Venue.findOne({ _id: venue._id });
     venueDoc.title = updatedVenue.title;
     venueDoc.type = updatedVenue.type;
     venueDoc.contact = updatedVenue.contact;
