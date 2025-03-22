@@ -28,7 +28,7 @@ export const VenueSpec = Joi.object()
     contact: Joi.number().required().example(1234567890),
     location: Joi.string().required().example("127, 254"),
     description: Joi.string().required().example("A great place to get good music and drinks"),
-    playlistid: IdSpec,
+    venuetypeid: IdSpec,
   })
   .label("Venue");
 
@@ -53,4 +53,11 @@ export const VenueTypeSpecPlus = VenueTypeSpec.keys({
 }).label("VenueTypePlus");
 
 export const VenueTypeArraySpec = Joi.array().items(VenueTypeSpecPlus).label("VenueTypeArray");
+
+export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  })
+  .label("JwtAuth");
 

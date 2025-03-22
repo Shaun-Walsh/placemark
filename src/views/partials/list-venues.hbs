@@ -1,37 +1,20 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Type</th>
-      <th>Contact</th>
-      <th>Location</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each venueType.venues}}
-      <tr>
-        <td>
-          {{title}}
-        </td>
-        <td>
-          {{type}}
-        </td>
-        <td>
-          {{contact}}
-        </td>
-        <td>
-          {{location}}
-        </td>
-        <td>
-          {{description}}
-        </td>
-        <td>
-          <a href="/venueType/{{../venueType._id}}/deleteVenue/{{_id}}" class="ui icon button">
-            <i class="fas fa-trash"></i>
+<div class="columns is-multiline">
+  {{#each venueType.venues}}
+    <div class="column is-one-third">
+      <div class="card">
+        <div class="card-content">
+          <p class="title">{{title}}</p>
+          <p><strong>Type:</strong> {{type}}</p>
+          <p><strong>Contact:</strong> {{contact}}</p>
+          <p><strong>Location:</strong> {{location}}</p>
+          <p><strong>Description:</strong> {{description}}</p>
+        </div>
+        <footer class="card-footer">
+          <a href="/venueType/{{../venueType._id}}/deleteVenue/{{_id}}" class="card-footer-item has-text-danger">
+            <i class="fas fa-trash"></i> Delete
           </a>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+        </footer>
+      </div>
+    </div>
+  {{/each}}
+</div>
