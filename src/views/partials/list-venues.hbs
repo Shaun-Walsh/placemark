@@ -11,6 +11,9 @@
           <p><strong>Description:</strong> {{description}}</p>
         </div>
         <footer class="card-footer">
+          <a href="/venue/{{../venueType._id}}/editVenue/{{_id}}" class="card-footer-item">
+            <i class="fas fa-edit"></i> Edit
+          </a>
           <a href="/venueType/{{../venueType._id}}/deleteVenue/{{_id}}" class="card-footer-item has-text-danger">
             <i class="fas fa-trash"></i> Delete
           </a>
