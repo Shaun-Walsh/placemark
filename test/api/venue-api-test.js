@@ -1,20 +1,25 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placemarkService } from "./placemark-service.js";
-import { maggie, pub, testVenueTypes, testVenues, sadies } from "../fixtures.js";
+import { maggie, pub, testVenueTypes, testVenues, sadies, maggieCredentials } from "../fixtures.js";
 
 suite("Venue API tests", () => {
   let user = null;
   let theatreList = null;
 
   setup(async () => {
-    await placemarkService.deleteAllVenueTypes();
-    await placemarkService.deleteAllUsers();
-    await placemarkService.deleteAllVenues();
+    placemarkService.clearAuth();
     user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
+    await placemarkService.deleteAllVenueTypes();
+    await placemarkService.deleteAllVenues();
+    await placemarkService.deleteAllUsers();
+    user = await placemarkService.createUser(maggie);
+    await placemarkService.authenticate(maggieCredentials);
     pub.userid = user._id;
     theatreList = await placemarkService.createVenueType(pub);
   });
+
 
   teardown(async () => {});
 

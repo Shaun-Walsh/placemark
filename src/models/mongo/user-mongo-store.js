@@ -26,6 +26,16 @@ export const userMongoStore = {
     const user = await User.findOne({ email: email }).lean();
     return user;
   },
+ // method for updating a user
+   async updateUser(userId, updatedUser) {
+      const userDoc = await User.findOne({userId});
+      userDoc.firstName = updatedUser.firstName;
+      userDoc.lastName = updatedUser.lastName;
+      userDoc.email = updatedUser.email;
+      userDoc.password = updatedUser.password;
+      const res = await userDoc.save();
+      return res;
+    },
 
   async deleteUserById(id) {
     try {
@@ -37,5 +47,10 @@ export const userMongoStore = {
 
   async deleteAll() {
     await User.deleteMany({});
-  }
+  },
+
+  async totalUsers() {
+    const users = await User.find().lean();
+    return users.length;
+  },
 };

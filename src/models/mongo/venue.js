@@ -6,9 +6,10 @@ const venueSchema = new Schema({
   title: String,
   type: String,
   contact: Number,
-  location: String,
+  lat: Number,
+  long: Number,
   description: String,
-  venueTypeid: {
+  venuetypeid: {
     type: Schema.Types.ObjectId,
     ref: "VenueType",
   },

@@ -9,6 +9,11 @@
           <a id="dashboard" class="button" href="/dashboard"> Dashboard </a>
            <a id="about" class="button" href="/about"> About </a>
           <a id="logout" class="button" href="/logout"> Logout </a>
+          <a id="profile" class="button" href="/profile"> Profile </a>
+          {{!-- checking to see if user is an admin --}}
+           {{#if (eq loggedInUser.role "admin")}}
+            <a id="admin" class="button" href="/admin"> Admin Panel </a>
+          {{/if}}
         </div>
       </div>
     </div>

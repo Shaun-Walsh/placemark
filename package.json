@@ -20,7 +20,7 @@
     "test": "mocha --ui tdd test/**/*.js -exit",
     "testmodels": "./node_modules/mocha/bin/mocha --ui tdd test/models/**/*.js",
     "testapi": "./node_modules/mocha/bin/mocha --ui tdd test/api/**/*.js",
-    "dev": "nodemon  src/server.js --ignore 'src/models/json/*.json'" 
+    "dev": "nodemon  src/server.js --ignore 'src/models/json/*.json'"
   },
   "devDependencies": {
     "axios": "^1.8.3",
@@ -37,11 +37,17 @@
     "@hapi/boom": "^10.0.1",
     "@hapi/cookie": "^12.0.1",
     "@hapi/hapi": "^21.3.12",
+    "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
+    "cloudinary": "^2.6.0",
     "dotenv": "^16.4.7",
     "handlebars": "^4.7.8",
+    "hapi-auth-jwt2": "^11.0.0",
+    "hapi-swagger": "^17.3.2",
     "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "lowdb": "^7.0.1",
+    "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^8.12.1",
     "uuid": "^11.1.0"
   }

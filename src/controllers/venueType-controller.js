@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
-import { venueSpec } from "../models/joi-schemas.js";
+import { VenueSpec } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 export const venueTypeController = {
   index: {
@@ -15,7 +16,7 @@ export const venueTypeController = {
 
   addVenue: {
     validate: {
-      payload: venueSpec,
+      payload: VenueSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("venueType-view", { title: "Add venue error", errors: error.details }).takeover().code(400);
@@ -27,7 +28,8 @@ export const venueTypeController = {
         title: request.payload.title,
         type: request.payload.type,
         contact: Number(request.payload.contact),
-        location: request.payload.location,
+        lat: Number(request.payload.lat),
+        long: Number(request.payload.long),
         description: request.payload.description,
       };
       await db.venueStore.addVenue(venueType._id, newVenue);
@@ -39,6 +41,40 @@ export const venueTypeController = {
     handler: async function (request, h) {
       const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
       await db.venueStore.deleteVenue(request.params.venueid);
+      return h.redirect(`/venueType/${venueType._id}`);
+    },
+  },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          venueType.img = url;
+          await db.venueTypeStore.updateVenueType(venueType);
+        }
+        return h.redirect(`/venueType/${venueType._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/venueType/${venueType._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
+    },
+  },
+
+  // method to update venue
+  updateVenue: {
+    handler: async function (request, h) {
+      const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
+      const updatedVenue = request.payload;
+      await db.venueStore.updateVenue(venueType, updatedVenue);
       return h.redirect(`/venueType/${venueType._id}`);
     },
   },

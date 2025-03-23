@@ -1,5 +1,5 @@
 import { db } from "../models/db.js";
-import { venueTypeSpec } from "../models/joi-schemas.js";
+import { VenueTypeSpec } from "../models/joi-schemas.js";
 
 export const dashboardController = {
   index: {
@@ -8,6 +8,8 @@ export const dashboardController = {
       const venueTypes = await db.venueTypeStore.getUserVenueTypes(loggedInUser._id);
       const viewData = {
         title: "Placemark Dashboard",
+        //exporting the user object to the view
+        loggedInUser: loggedInUser,
         venueTypes: venueTypes,
       };
       return h.view("dashboard-view", viewData);
@@ -16,7 +18,7 @@ export const dashboardController = {
 
   addVenueType: {
     validate: {
-      payload: venueTypeSpec,
+      payload: VenueTypeSpec,
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         return h.view("dashboard-view", { title: "Add Venue Type error", errors: error.details }).takeover().code(400);

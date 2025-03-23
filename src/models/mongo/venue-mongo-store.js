@@ -8,14 +8,14 @@ export const venueMongoStore = {
   },  
 
   async addVenue(venueTypeId, venue) {
-    venue.venueTypeId = venueTypeId;
+    venue.venuetypeid = venueTypeId;
     const newVenue = new Venue(venue);
     const venueObj = await newVenue.save();
     return this.getVenueById(venueObj._id);
   },
 
   async getVenuesByVenueTypeId(id) {
-    const venues = await Venue.find({ venueTypeId: id }).lean();
+    const venues = await Venue.find({ venuetypeid: id }).lean();
     return venues;
   },
 
@@ -40,11 +40,12 @@ export const venueMongoStore = {
   },
 
   async updateVenue(venue, updatedVenue) {
-    const venueDoc = await Venue.findOne({ _id: track._id });
+    const venueDoc = await Venue.findOne({ _id: venue._id });
     venueDoc.title = updatedVenue.title;
     venueDoc.type = updatedVenue.type;
     venueDoc.contact = updatedVenue.contact;
-    venueDoc.location = updatedVenue.location;
+    venueDoc.lat = updatedVenue.lat;
+    venueDoc.long = updatedVenue.long;
     venueDoc.description = updatedVenue.description;
     await venueDoc.save();
   },

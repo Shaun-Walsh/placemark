@@ -1,0 +1,17 @@
+<div class="columns is-multiline">
+  {{#each users.users}}
+    <div class="column">
+      <div class="card">
+        <div class="card-content">
+          <p class="title">{{name}}</p>
+          <p><strong>Email:</strong> {{email}}</p>
+          <p><strong>Role:</strong> {{role}}</p>
+        </div>
+        <footer class="card-footer">
+          <a href="/admin/deleteUser/{{_id}}" class="card-footer-item has-text-danger">
+            <i class="fas fa-trash"></i> Delete
+          </a>
+        </footer>
+      </div>
+    </div>
+  {{/each}}	
