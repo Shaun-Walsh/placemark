@@ -8,9 +8,9 @@ export const dashboardController = {
       const venueTypes = await db.venueTypeStore.getUserVenueTypes(loggedInUser._id);
       const viewData = {
         title: "Placemark Dashboard",
-        venueTypes: venueTypes,
         //exporting the user object to the view
-        loggedInUser: loggedInUser
+        loggedInUser: loggedInUser,
+        venueTypes: venueTypes,
       };
       return h.view("dashboard-view", viewData);
     },

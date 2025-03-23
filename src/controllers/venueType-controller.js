@@ -28,7 +28,8 @@ export const venueTypeController = {
         title: request.payload.title,
         type: request.payload.type,
         contact: Number(request.payload.contact),
-        location: request.payload.location,
+        lat: Number(request.payload.lat),
+        long: Number(request.payload.long),
         description: request.payload.description,
       };
       await db.venueStore.addVenue(venueType._id, newVenue);

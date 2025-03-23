@@ -39,7 +39,8 @@ export const sadies = {
   title: "Sadies Bar",
   type: "Public House",
   contact: 1234567890,
-  location: "123, 741",
+  lat: 123.456,
+  long: 123.456,
   description: "Famous local pub",
 };
 // beethoven
@@ -64,21 +65,24 @@ export const testVenues = [
     title: "Murphs's",
     type: "Bar",
     contact: 51389654,
-    location: "123, 852",
+    lat: 123.456,
+    long: 123.456,
     description: "A great place to hang out",
   },
   {
     title: "The Abbey",
     type: "Classical",
     contact: 51321687,
-    location: "123, 786",
+    lat: 123.456,
+    long: 123.456,
     description: "Classical music venue",
   },
   {
     title: "Theatre Royal",
     type: "Theatre",
     contact: 51321687,
-    location: "123, 786",
+    lat: 123.456,
+    long: 123.456,
     description: "Theatre venue",
   },
 ];
