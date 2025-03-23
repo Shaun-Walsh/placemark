@@ -68,4 +68,14 @@ export const venueTypeController = {
       parse: true,
     },
   },
+
+  // method to update venue
+  updateVenue: {
+    handler: async function (request, h) {
+      const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
+      const updatedVenue = request.payload;
+      await db.venueStore.updateVenue(venueType, updatedVenue);
+      return h.redirect(`/venueType/${venueType._id}`);
+    },
+  },
 };

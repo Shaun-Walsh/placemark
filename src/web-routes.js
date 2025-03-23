@@ -27,6 +27,9 @@ export const webRoutes = [
   { method: "POST", path: "/venueType/{id}/addVenue", config: venueTypeController.addVenue },
   { method: "GET", path: "/venueType/{id}/deleteVenue/{venueid}", config: venueTypeController.deleteVenue },
   { method: "POST", path: "/venueType/{id}/uploadimage", config: venueTypeController.uploadImage },
+  // route to update venue
+
+  { method: "POST", path: "/venuetype/{id}/updateVenue", config: venueTypeController.updateVenue },	
 
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },

@@ -48,4 +48,16 @@ export const venueTypeMongoStore = {
     venueTypeDoc.img = updatedVenueType.img;
     await venueTypeDoc.save();
   },
+
+  // Count the number of venue types
+  async totalVenueTypes() {
+    const venueTypes = await VenueType.find().lean();
+    return venueTypes.length;
+  },
+
+  //count the number of venues
+  async totalVenues() {
+    const venues = await venueMongoStore.getAllVenues();
+    return venues.length;
+  }
 };
