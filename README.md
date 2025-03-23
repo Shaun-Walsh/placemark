@@ -2,6 +2,9 @@
 
 Placemark is a full-stack web application for managing and organizing venue information. It allows users to create, edit, and categorize venues while providing administrative capabilities for system management.
 
+## Deployment
+https://placemark-sl2m.onrender.com/
+
 ## Features
 
 - **User Authentication**: Secure login and registration system with role-based access control
