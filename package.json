@@ -50,5 +50,9 @@
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^8.12.1",
     "uuid": "^11.1.0"
+  },
+  "engines": {
+    "node": ">=16"
   }
+
 }
