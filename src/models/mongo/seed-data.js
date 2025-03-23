@@ -41,7 +41,8 @@ export const seedData = {
       title: "Sadies Bar",
       type: "Public House",
       contact: 1234567890,
-      location: "123, 741",
+      lat: 123.456,
+      long: 123.456,
       description: "Famous local pub",
       venuetypeid: "->venueTypes.pub"
     },
@@ -49,7 +50,8 @@ export const seedData = {
       title: "Theatre Royal",
       type: "Theatre",
       contact: 1234567890,
-      location: "123, 741",
+      lat: 123.456,
+      long: 123.456,
       description: "Famous local theatre",
       venuetypeid: "->venueTypes.theatre"
     },
@@ -57,7 +59,8 @@ export const seedData = {
       title: "St. Mary's",
       type: "Catholic Church",
       contact: 1234567890,
-      location: "123, 741",
+      lat: 123.456,
+      long: 123.456,
       description: "Famous local church",
       venuetypeid: "->venueTypes.church"
     },
