@@ -9,6 +9,8 @@ export const dashboardController = {
       const viewData = {
         title: "Placemark Dashboard",
         venueTypes: venueTypes,
+        //exporting the user object to the view
+        loggedInUser: loggedInUser
       };
       return h.view("dashboard-view", viewData);
     },
