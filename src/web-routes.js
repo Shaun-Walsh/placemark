@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { venueTypeController } from "./controllers/venueType-controller.js";
+import { adminController } from "./controllers/admin-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -28,6 +29,10 @@ export const webRoutes = [
   { method: "POST", path: "/venueType/{id}/uploadimage", config: venueTypeController.uploadImage },
 
 
-  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
+
+  { method: "GET", path: "/admin", config: adminController.index },
+  { method: "GET", path: "/admin/deleteUser/{id}", config: adminController.deleteUser },
+
 
 ];
