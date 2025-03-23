@@ -40,5 +40,12 @@ export const venueTypeMongoStore = {
 
   async deleteAllVenueTypes() {
     await VenueType.deleteMany({});
-  }
+  },
+
+  async updateVenueType(updatedVenueType) {
+    const venueTypeDoc = await VenueType.findOne({ _id: updatedVenueType._id });
+    venueTypeDoc.title = updatedVenueType.title;
+    venueTypeDoc.img = updatedVenueType.img;
+    await venueTypeDoc.save();
+  },
 };

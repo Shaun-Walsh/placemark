@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
 import { VenueSpec } from "../models/joi-schemas.js";
+import { imageStore } from "../models/image-store.js";
 
 export const venueTypeController = {
   index: {
@@ -40,6 +41,30 @@ export const venueTypeController = {
       const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
       await db.venueStore.deleteVenue(request.params.venueid);
       return h.redirect(`/venueType/${venueType._id}`);
+    },
+  },
+
+  uploadImage: {
+    handler: async function (request, h) {
+      try {
+        const venueType = await db.venueTypeStore.getVenueTypeById(request.params.id);
+        const file = request.payload.imagefile;
+        if (Object.keys(file).length > 0) {
+          const url = await imageStore.uploadImage(request.payload.imagefile);
+          venueType.img = url;
+          await db.venueTypeStore.updateVenueType(venueType);
+        }
+        return h.redirect(`/venueType/${venueType._id}`);
+      } catch (err) {
+        console.log(err);
+        return h.redirect(`/venueType/${venueType._id}`);
+      }
+    },
+    payload: {
+      multipart: true,
+      output: "data",
+      maxBytes: 209715200,
+      parse: true,
     },
   },
 };
