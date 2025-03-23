@@ -6,6 +6,7 @@ export const UserCredentialsSpec = Joi.object()
   .keys({
     email: Joi.string().email().example("homer@simpson.com").required(),
     password: Joi.string().example("secret").required(),
+    role: Joi.string().example("user"),
   })
   .label("UserCredentials");
 
@@ -26,7 +27,8 @@ export const VenueSpec = Joi.object()
     title: Joi.string().required().example("Sadies"),
     type: Joi.string().required().example("Public House"),
     contact: Joi.number().required().example(1234567890),
-    location: Joi.string().required().example("127, 254"),
+    lat: Joi.number().required().example(123.456),
+    long: Joi.number().required().example(123.456),
     description: Joi.string().required().example("A great place to get good music and drinks"),
     venuetypeid: IdSpec,
   })

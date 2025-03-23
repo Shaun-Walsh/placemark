@@ -40,5 +40,24 @@ export const venueTypeMongoStore = {
 
   async deleteAllVenueTypes() {
     await VenueType.deleteMany({});
+  },
+
+  async updateVenueType(updatedVenueType) {
+    const venueTypeDoc = await VenueType.findOne({ _id: updatedVenueType._id });
+    venueTypeDoc.title = updatedVenueType.title;
+    venueTypeDoc.img = updatedVenueType.img;
+    await venueTypeDoc.save();
+  },
+
+  // Count the number of venue types
+  async totalVenueTypes() {
+    const venueTypes = await VenueType.find().lean();
+    return venueTypes.length;
+  },
+
+  //count the number of venues
+  async totalVenues() {
+    const venues = await venueMongoStore.getAllVenues();
+    return venues.length;
   }
 };

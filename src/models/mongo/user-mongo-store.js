@@ -47,5 +47,10 @@ export const userMongoStore = {
 
   async deleteAll() {
     await User.deleteMany({});
-  }
+  },
+
+  async totalUsers() {
+    const users = await User.find().lean();
+    return users.length;
+  },
 };

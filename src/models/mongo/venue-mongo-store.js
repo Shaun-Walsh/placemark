@@ -44,7 +44,8 @@ export const venueMongoStore = {
     venueDoc.title = updatedVenue.title;
     venueDoc.type = updatedVenue.type;
     venueDoc.contact = updatedVenue.contact;
-    venueDoc.location = updatedVenue.location;
+    venueDoc.lat = updatedVenue.lat;
+    venueDoc.long = updatedVenue.long;
     venueDoc.description = updatedVenue.description;
     await venueDoc.save();
   },

@@ -1,15 +1,19 @@
 <div class="columns is-multiline">
   {{#each venueType.venues}}
-    <div class="column is-one-third">
+    <div class="column">
       <div class="card">
         <div class="card-content">
           <p class="title">{{title}}</p>
           <p><strong>Type:</strong> {{type}}</p>
           <p><strong>Contact:</strong> {{contact}}</p>
-          <p><strong>Location:</strong> {{location}}</p>
+          <p><strong>Lattitude:</strong> {{lat}}</p>
+          <p><strong>Longitude:</strong> {{long}}</p>
           <p><strong>Description:</strong> {{description}}</p>
         </div>
         <footer class="card-footer">
+          <a href="/venue/{{../venueType._id}}/editVenue/{{_id}}" class="card-footer-item">
+            <i class="fas fa-edit"></i> Edit
+          </a>
           <a href="/venueType/{{../venueType._id}}/deleteVenue/{{_id}}" class="card-footer-item has-text-danger">
             <i class="fas fa-trash"></i> Delete
           </a>

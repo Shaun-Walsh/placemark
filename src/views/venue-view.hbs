@@ -1,0 +1,28 @@
+{{> menu}}
+
+<form class="box"  action="/venue/{{venueType._id}}/updateVenue/{{venue._id}}" method="POST">
+  <label>Update Venue Details:</label>
+  <div class="field is-horizontal">
+    <div class="field-body">
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Title" name="title" value="{{venue.title}}">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Type" name="type" value="{{venue.type}}">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Contact Details" name="contact" value="{{venue.contact}}">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Latitude" name="lat" value="{{venue.lat}}">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Longitude" name="long" value="{{venue.long}}">
+        </div>
+        <div class="field">
+            <input class="input" type="text" placeholder="Enter Description" name="description" value="{{venue.description}}">
+        </div>
+    </div>
+  </div>
+  <button class="button is-primary">Update Venue</button>
+</form>

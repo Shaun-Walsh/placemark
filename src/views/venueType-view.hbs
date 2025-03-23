@@ -1,9 +1,17 @@
 {{> menu}}
 
-<section class="section">
-  <div class="title">
-    {{venueType.title}}
+<section class="section columns is-vcentered">
+  <div class="column has-text-centered">
+    <div class="title">
+      {{venueType.title}}
+    </div>
+    {{> list-venues}}
   </div>
-  {{> list-venues}}
+  <div class="column">
+    {{> venueType-image }}
+  </div>
+</section>
+
+<section class="section">
   {{> add-venue}}
 </section>

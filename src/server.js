@@ -15,6 +15,11 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { apiRoutes } from "./api-routes.js";
 import { validate } from "./api/jwt-utils.js";
 
+// sourced from https://stackoverflow.com/questions/8853396/logical-operator-in-a-handlebars-js-if-conditional
+Handlebars.registerHelper('eq', function(v1, v2) {
+  return v1 === v2;
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -87,6 +92,7 @@ async function init() {
     layout: true,
     isCached: false,
   });
+  
   db.init("mongo");
   server.route(webRoutes);
   server.route(apiRoutes);
