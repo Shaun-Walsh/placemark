@@ -4,6 +4,8 @@ import { aboutController } from "./controllers/about-controller.js";
 import { venueTypeController } from "./controllers/venueType-controller.js";
 import { adminController } from "./controllers/admin-controller.js";
 import { venueController } from "./controllers/venue-controller.js";
+import os from "os";
+
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -38,6 +40,16 @@ export const webRoutes = [
 
   { method: "GET", path: "/admin", config: adminController.index },
   { method: "GET", path: "/admin/deleteUser/{id}", config: adminController.deleteUser },
+
+  {
+  method: 'GET',
+  path: '/testlb',
+  handler: function (request, h) {
+     return('Server: ' + os.hostname());
+  },
+  config: {auth: false}
+},
+
 
 
 ];
